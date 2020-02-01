@@ -11,6 +11,8 @@ inputs:
   github-token:
     description: The GitHub token used to create an authenticated client
     required: true
+  baseUrl:
+    description: Base URL for API requests to GitHub Enterprise Server
   debug:
     description: Whether to tell the GitHub client to log details of its requests
     default: false
