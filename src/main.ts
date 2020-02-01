@@ -7,10 +7,12 @@ main().catch(handleError)
 async function main() {
   const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor
   const token = core.getInput('github-token', {required: true})
+  const baseUrl = core.getInput('baseUrl')
   const debug = core.getInput('debug')
   const userAgent = core.getInput('user-agent')
   const previews = core.getInput('previews')
   const opts: {[key: string]: any} = {}
+  if (baseUrl != null) opts.baseUrl = baseUrl
   if (debug === 'true') opts.log = console
   if (userAgent != null) opts.userAgent = userAgent
   if (previews != null) opts.previews = previews.split(',')
